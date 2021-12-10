@@ -1,0 +1,6 @@
+name: Minesweeper
+version: '${version}'
+main: com.rtcal.minesweeper.Main
+api-version: 1.18
+authors: [ rtcal ]
+description: Minesweeper implemented in minecraft

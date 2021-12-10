@@ -1,0 +1,8 @@
+prefix: '&6[&cMinesweeper&6]&f'
+messages:
+  broadcast_leave: '&a<player> &bleft!'
+  broadcast_join: '&a<player> &bjoined!'
+  broadcast_start: '&aGame is starting!'
+  broadcast_over: '&aGame is over!'
+  player_busy: '&bYou are already in an game!'
+  arena_full: '&bThat game is full!'
