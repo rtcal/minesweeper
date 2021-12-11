@@ -3,6 +3,7 @@ package com.rtcal.minesweeper;
 import com.rtcal.command.Command;
 import com.rtcal.minesweeper.commands.Create;
 import com.rtcal.minesweeper.commands.Join;
+import com.rtcal.minesweeper.commands.Start;
 import com.rtcal.minesweeper.listeners.BlockBreakListener;
 import com.rtcal.minesweeper.listeners.BlockPlaceListener;
 import com.rtcal.minesweeper.listeners.PlayerInteractListener;
@@ -30,6 +31,7 @@ public final class Main extends JavaPlugin {
         Command cmd = new Command("minesweeper");
         cmd.addChild(new Create());
         cmd.addChild(new Join());
+        cmd.addChild(new Start());
 
         cmd.register(this);
     }
