@@ -32,6 +32,10 @@ public final class Minesweeper extends Arena {
         this.team = new Team(5);
     }
 
+    public Game getGame() {
+        return game;
+    }
+
     @Override
     public void join(Team team, Player player) {
         if (PlayerHandler.isBusy(player.getUniqueId())) {
