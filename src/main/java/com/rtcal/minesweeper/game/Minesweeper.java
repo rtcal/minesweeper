@@ -45,7 +45,7 @@ public final class Minesweeper extends Arena {
         }
 
         team.addPlayer(player.getUniqueId());
-        PlayerHandler.makeBusy(player.getUniqueId());
+        PlayerHandler.makeBusy(player.getUniqueId(), this);
         broadcast(Messages.BROADCAST_JOIN.replace("<player>", player.getDisplayName()));
     }
 
