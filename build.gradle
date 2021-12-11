@@ -26,6 +26,7 @@ repositories {
 dependencies {
     implementation name: 'arena-handler'
     implementation name: 'player-handler'
+    implementation name: 'command-api'
     compileOnly 'org.spigotmc:spigot-api:1.18-R0.1-SNAPSHOT'
 }
 

@@ -6,3 +6,6 @@ messages:
   broadcast_over: '&aGame is over!'
   player_busy: '&bYou are already in an game!'
   arena_full: '&bThat game is full!'
+  arena_wrong_world: '&bMinesweeper commands can only be used in the minesweeper world!'
+  arena_creation_success: '&bArena creation success!'
+  arena_creation_failed: '&cArena creation failed!'

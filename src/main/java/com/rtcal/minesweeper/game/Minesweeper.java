@@ -70,6 +70,8 @@ public final class Minesweeper extends Arena {
 
     @Override
     public void start() {
+        game.spawnBoard();
+
         Set<UUID> failed = new HashSet<>();
 
         for (UUID id : team.getPlayers()) {

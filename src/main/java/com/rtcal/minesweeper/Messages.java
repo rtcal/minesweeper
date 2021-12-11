@@ -15,4 +15,8 @@ public final class Messages {
 
     public static final String PLAYER_BUSY = PREFIX + config.getString("messages.player_busy");
     public static final String ARENA_FULL = PREFIX + config.getString("messages.arena_full");
+    public static final String ARENA_WRONG_WORLD = PREFIX + config.get("messages.arena_wrong_world");
+
+    public static final String ARENA_CREATION_SUCCESS = PREFIX + config.get("messages.arena_creation_success");
+    public static final String ARENA_CREATION_FAILED = PREFIX + config.get("messages.arena_creation_failed");
 }

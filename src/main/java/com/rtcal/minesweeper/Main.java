@@ -1,5 +1,7 @@
 package com.rtcal.minesweeper;
 
+import com.rtcal.command.Command;
+import com.rtcal.minesweeper.commands.BaseCommand;
 import com.rtcal.minesweeper.listeners.BlockBreakListener;
 import com.rtcal.minesweeper.listeners.BlockPlaceListener;
 import com.rtcal.minesweeper.listeners.PlayerInteractListener;
@@ -24,6 +26,9 @@ public final class Main extends JavaPlugin {
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerInteractListener(), this);
 
+        new BaseCommand();
+        
+        Command.registerCommands(this);
     }
 
     @Override
