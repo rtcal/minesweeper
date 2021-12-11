@@ -5,7 +5,6 @@ import com.rtcal.command.ChildCommand;
 import com.rtcal.minesweeper.Messages;
 import com.rtcal.minesweeper.game.Minesweeper;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +28,9 @@ public final class Start extends ChildCommand {
 
         try {
             Minesweeper arena = (Minesweeper) Arena.getArena("minesweeper", Integer.parseInt(args[0]));
-            arena.start();
+
+            if (arena == null) sender.sendMessage(Messages.ARENA_NOT_FOUND);
+            else arena.start();
 
         } catch (NumberFormatException e) {
             sender.sendMessage(Messages.ARENA_NOT_FOUND);

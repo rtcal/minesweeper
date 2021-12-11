@@ -34,7 +34,9 @@ public final class Join extends ChildCommand {
 
         try {
             Minesweeper arena = (Minesweeper) Arena.getArena("minesweeper", Integer.parseInt(args[0]));
-            arena.join(arena.getTeam(), player);
+
+            if (arena == null) player.sendMessage(Messages.ARENA_NOT_FOUND);
+            else arena.join(arena.getTeam(), player);
 
         } catch (NumberFormatException e) {
             player.sendMessage(Messages.ARENA_NOT_FOUND);
