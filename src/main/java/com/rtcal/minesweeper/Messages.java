@@ -22,4 +22,6 @@ public final class Messages {
 
     public static final String ARENA_CREATION_SUCCESS = PREFIX + ChatColor.translateAlternateColorCodes('&', config.getString("messages.arena_creation_success"));
     public static final String ARENA_CREATION_FAILED = PREFIX + ChatColor.translateAlternateColorCodes('&', config.getString("messages.arena_creation_failed"));
+    public static final String ARENA_NOT_FOUND = PREFIX + ChatColor.translateAlternateColorCodes('&', config.getString("messages.arena_not_found"));
+
 }

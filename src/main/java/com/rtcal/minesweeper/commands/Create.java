@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Create extends ChildCommand {
+public final class Create extends ChildCommand {
 
     public Create() {
-        super("create", "Create an arena!", "minesweeper.create", "/minesweeper create width length bombs");
+        super("create", "Create a minesweeper arena!", "minesweeper.create", "/minesweeper create <width> <length> <bombs>");
     }
 
     @Override
@@ -55,9 +55,9 @@ public class Create extends ChildCommand {
     @Override
     protected List<String> getCompletions(final CommandSender sender, final String[] args) {
         return switch (args.length) {
-            case 1 -> Collections.singletonList("width");
-            case 2 -> Collections.singletonList("length");
-            case 3 -> Collections.singletonList("bombs");
+            case 1 -> Collections.singletonList("<width>");
+            case 2 -> Collections.singletonList("<length>");
+            case 3 -> Collections.singletonList("<bombs>");
             default -> new ArrayList<>();
         };
     }

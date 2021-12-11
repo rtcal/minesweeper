@@ -16,3 +16,4 @@ permissions:
     default: op
     children:
       minesweeper.create: true
+      minesweeper.join: true

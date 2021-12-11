@@ -10,3 +10,4 @@ messages:
   arena_wrong_world: '&bMinesweeper commands can only be used in the minesweeper world!'
   arena_creation_success: '&bArena creation success!'
   arena_creation_failed: '&cArena creation failed!'
+  arena_not_found: '&bTarget arena not found!'
