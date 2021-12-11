@@ -1,4 +1,5 @@
 plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
     id 'java'
 }
 
@@ -31,6 +32,10 @@ dependencies {
 }
 
 jar {
+    archiveName 'minesweeper.jar'
+}
+
+shadowJar {
     archiveName 'minesweeper.jar'
 }
 
