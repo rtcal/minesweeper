@@ -15,4 +15,4 @@ permissions:
     description: Access to the base minesweeper command
     default: op
     children:
-      minesweeper.create: false
+      minesweeper.create: true

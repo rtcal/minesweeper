@@ -14,12 +14,23 @@ import java.util.List;
 public class Create extends ChildCommand {
 
     public Create() {
-        super("create", "Create an arena!", "minesweeper.create");
+        super("create", "Create an arena!", "minesweeper.create", "/minesweeper create width length bombs");
     }
 
     @Override
     protected void execute(CommandSender sender, String[] args) {
-        if (!(sender instanceof Player player) || !sender.hasPermission(getPermission()) || args.length != 3) return;
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(Messages.PLAYER_ONLY_COMMAND);
+            return;
+        }
+
+        if (!player.hasPermission(getPermission())) return;
+
+        if (args.length != 3) {
+            player.sendMessage(getUsage());
+            return;
+        }
+
 
         if (!player.getWorld().getName().equalsIgnoreCase("minesweeper")) {
             player.sendMessage(Messages.ARENA_WRONG_WORLD);

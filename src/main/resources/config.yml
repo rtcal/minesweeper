@@ -5,6 +5,7 @@ messages:
   broadcast_start: '&aGame is starting!'
   broadcast_over: '&aGame is over!'
   player_busy: '&bYou are already in an game!'
+  player_only_command: '&bOnly players can use that command!'
   arena_full: '&bThat game is full!'
   arena_wrong_world: '&bMinesweeper commands can only be used in the minesweeper world!'
   arena_creation_success: '&bArena creation success!'

@@ -14,9 +14,11 @@ public final class Messages {
     public static final String BROADCAST_OVER = PREFIX + config.get("messages.broadcast_over");
 
     public static final String PLAYER_BUSY = PREFIX + config.getString("messages.player_busy");
-    public static final String ARENA_FULL = PREFIX + config.getString("messages.arena_full");
-    public static final String ARENA_WRONG_WORLD = PREFIX + config.get("messages.arena_wrong_world");
+    public static final String PLAYER_ONLY_COMMAND = PREFIX + config.getString("messages.player_only_command");
 
-    public static final String ARENA_CREATION_SUCCESS = PREFIX + config.get("messages.arena_creation_success");
-    public static final String ARENA_CREATION_FAILED = PREFIX + config.get("messages.arena_creation_failed");
+    public static final String ARENA_FULL = PREFIX + config.getString("messages.arena_full");
+    public static final String ARENA_WRONG_WORLD = PREFIX + config.getString("messages.arena_wrong_world");
+
+    public static final String ARENA_CREATION_SUCCESS = PREFIX + config.getString("messages.arena_creation_success");
+    public static final String ARENA_CREATION_FAILED = PREFIX + config.getString("messages.arena_creation_failed");
 }
