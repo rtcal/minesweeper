@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public final class Minesweeper extends Arena {
 
-    private static final String TYPE = "minesweeper";
+    public static final String TYPE = "minesweeper";
 
     private static int arenas = 1;
 

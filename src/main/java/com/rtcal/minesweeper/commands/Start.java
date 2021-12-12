@@ -7,8 +7,8 @@ import com.rtcal.minesweeper.game.Minesweeper;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public final class Start extends ChildCommand {
 
@@ -40,7 +40,7 @@ public final class Start extends ChildCommand {
 
     @Override
     protected List<String> getCompletions(final CommandSender sender, final String[] args) {
-        if (args.length == 1) return Collections.singletonList("<arena_id>");
+        if (args.length == 1) return Arena.getArenaIDs(Minesweeper.TYPE).stream().map(Object::toString).collect(Collectors.toList());
         return new ArrayList<>();
     }
 }
