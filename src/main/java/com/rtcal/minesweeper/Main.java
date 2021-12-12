@@ -4,6 +4,7 @@ import com.rtcal.command.Command;
 import com.rtcal.minesweeper.commands.Create;
 import com.rtcal.minesweeper.commands.Join;
 import com.rtcal.minesweeper.commands.Start;
+import com.rtcal.minesweeper.game.Minesweeper;
 import com.rtcal.minesweeper.listeners.BlockBreakListener;
 import com.rtcal.minesweeper.listeners.BlockPlaceListener;
 import com.rtcal.minesweeper.listeners.PlayerInteractListener;
@@ -48,6 +49,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        Minesweeper.saveAll();
     }
 
     public static Main getInstance() {

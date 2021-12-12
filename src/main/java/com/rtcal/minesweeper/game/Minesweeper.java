@@ -3,29 +3,42 @@ package com.rtcal.minesweeper.game;
 import com.rtcal.arenahandler.base.Arena;
 import com.rtcal.arenahandler.base.Team;
 import com.rtcal.arenahandler.exceptions.ArenaAlreadyExistsException;
+import com.rtcal.minesweeper.Main;
 import com.rtcal.minesweeper.Messages;
 import com.rtcal.playerhandler.PlayerHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 public final class Minesweeper extends Arena {
 
+    private static final String TYPE = "minesweeper";
+
     private static int arenas = 1;
 
     private final Game game;
     private final Team team;
-    private final Location spawnLocation;
+    private final Location spawnLocation, boardLocation;
+    private final int width, length, bombs;
 
     public Minesweeper(Location boardLocation, int width, int length, int bombs) throws ArenaAlreadyExistsException {
-        super("minesweeper", arenas);
+        super(TYPE, arenas);
         arenas++;
 
+        this.width = width;
+        this.length = length;
+        this.bombs = bombs;
+
+        this.boardLocation = boardLocation;
         this.spawnLocation = boardLocation.clone().add(width / 2.0, 1, length / 2.0);
 
         this.game = new Game(boardLocation, width, length, bombs);
@@ -124,6 +137,34 @@ public final class Minesweeper extends Arena {
             Player player = Bukkit.getPlayer(id);
 
             if (player != null) player.sendMessage(s);
+        }
+    }
+
+    public JSONObject save() {
+        JSONObject object = new JSONObject();
+        object.put("board", boardLocation.toString());
+        object.put("spawn", spawnLocation.toString());
+        object.put("width", width);
+        object.put("length", length);
+        object.put("bombs", bombs);
+
+        return object;
+    }
+
+    public static void saveAll() {
+        JSONArray arenas = new JSONArray();
+
+        for (Arena genericArena : Arena.getArenas(TYPE)) {
+            Minesweeper arena = (Minesweeper) genericArena;
+            arenas.put(arena.save());
+        }
+
+        try (FileWriter file = new FileWriter(Main.getInstance().getDataFolder() + "/arenas.json")) {
+            file.write(arenas.toString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
