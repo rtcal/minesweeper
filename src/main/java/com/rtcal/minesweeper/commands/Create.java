@@ -2,6 +2,7 @@ package com.rtcal.minesweeper.commands;
 
 import com.rtcal.arenahandler.exceptions.ArenaAlreadyExistsException;
 import com.rtcal.command.ChildCommand;
+import com.rtcal.minesweeper.Main;
 import com.rtcal.minesweeper.Messages;
 import com.rtcal.minesweeper.game.Minesweeper;
 import org.bukkit.command.CommandSender;
@@ -32,7 +33,7 @@ public final class Create extends ChildCommand {
         }
 
 
-        if (!player.getWorld().getName().equalsIgnoreCase("minesweeper")) {
+        if (!player.getWorld().getName().equalsIgnoreCase(Main.getMinesweeperWorld().getName())) {
             player.sendMessage(Messages.ARENA_WRONG_WORLD);
             return;
         }
