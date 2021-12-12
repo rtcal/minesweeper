@@ -38,10 +38,10 @@ public final class Main extends JavaPlugin {
 
         cmd.register(this);
 
-        minesweeperWorld = Bukkit.getWorld("Minesweeper");
+        minesweeperWorld = Bukkit.getWorld("Minigames");
 
         if (minesweeperWorld == null) {
-            this.getLogger().info("Minesweeper world not found!");
+            this.getLogger().info("Minigames world not found!");
             this.getLogger().info("Disabling myself...");
             Bukkit.getPluginManager().disablePlugin(this);
         }
