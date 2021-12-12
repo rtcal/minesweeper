@@ -4,9 +4,7 @@ main: com.rtcal.minesweeper.Main
 api-version: 1.18
 authors: [ rtcal ]
 description: Minesweeper implemented in minecraft
-depend:
-  - ArenaHandler
-  - PlayerHandler
+depend: [ 'ArenaHandler', 'PlayerHandler' ]
 commands:
   minesweeper:
     description: Base minesweeper commands
