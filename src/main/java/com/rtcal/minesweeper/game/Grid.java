@@ -20,7 +20,6 @@ public final class Grid {
         this.width = width;
         this.length = length;
         this.bombs = bombs;
-        this.remaining = width * length - bombs;
 
         grid = new Tile[width][length];
 
@@ -29,6 +28,8 @@ public final class Grid {
                 grid[x][z] = new Tile(x, z);
             }
         }
+
+        reset();
     }
 
     public int getWidth() {
@@ -91,5 +92,15 @@ public final class Grid {
 
     private boolean validCoordinates(int x, int z) {
         return x >= 0 && z >= 0 && x < width && z < length;
+    }
+
+    public void reset() {
+        for (int x = 0; x < width; x++) {
+            for (int z = 0; z < length; z++) {
+                getTile(x, z).reset();
+            }
+        }
+        this.populated = false;
+        this.remaining = width * length - bombs;
     }
 }

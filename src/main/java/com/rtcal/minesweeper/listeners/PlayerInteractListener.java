@@ -6,7 +6,6 @@ import com.rtcal.minesweeper.game.Minesweeper;
 import com.rtcal.minesweeper.game.Tile;
 import com.rtcal.playerhandler.DelayHandler;
 import com.rtcal.playerhandler.PlayerHandler;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,7 +42,9 @@ public class PlayerInteractListener implements Listener {
 
         switch (event.getAction()) {
             case RIGHT_CLICK_BLOCK -> game.flagTile(tile);
-            case LEFT_CLICK_BLOCK -> game.revealTile(tile);
+            case LEFT_CLICK_BLOCK -> {
+                if (game.revealTile(tile)) arena.stop();
+            }
         }
 
         DELAYS.set(player.getUniqueId(), DELAY_LENGTH);

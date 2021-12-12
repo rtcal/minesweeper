@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public final class Minesweeper extends Arena {
 
-    private static int arenas = 0;
+    private static int arenas = 1;
 
     private final Game game;
     private final Team team;
@@ -64,7 +64,7 @@ public final class Minesweeper extends Arena {
 
     @Override
     public void leave(Player player) {
-        if (team.containsPlayer(player.getUniqueId())) return;
+        if (!team.containsPlayer(player.getUniqueId())) return;
 
         team.removePlayer(player.getUniqueId());
         PlayerHandler.makeAvailable(player.getUniqueId());
@@ -109,11 +109,13 @@ public final class Minesweeper extends Arena {
 
             if (player != null) leave(player);
         }
+
+        reset();
     }
 
     @Override
     public void reset() {
-
+        game.reset();
     }
 
     @Override

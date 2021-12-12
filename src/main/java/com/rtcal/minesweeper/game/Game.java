@@ -1,6 +1,5 @@
 package com.rtcal.minesweeper.game;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
@@ -40,14 +39,19 @@ public final class Game {
     }
 
     public boolean revealTile(Tile tile) {
+        if (!grid.isPopulated()) grid.populate(tile);
+
         if (tile.isRevealed() || tile.isFlagged()) return false;
 
         if (tile.isBomb()) {
             revealBoard();
+            grid.reset();
             return true;
         }
 
         reveal(tile);
+
+        if (grid.getRemaining() == 0) return true;
 
         Location loc = boardLocation.clone().add(tile.getX(), -1, tile.getZ());
         loc.getBlock().setType(TileMaterial.getTile(tile.getValue()));
@@ -77,7 +81,6 @@ public final class Game {
 
                 loc.add(x, -1, z).getBlock().setType(getTileMaterial(tile));
                 loc.add(0, 1, 0).getBlock().setType(Material.AIR);
-
             }
         }
     }
@@ -94,9 +97,12 @@ public final class Game {
 
                 loc.add(x, 0, z).getBlock().setType(TileMaterial.getCover());
                 loc.subtract(0, 1, 0).getBlock().setType(Material.AIR);
-
             }
         }
+    }
+
+    public void reset() {
+        grid.reset();
     }
 
     private Material getTileMaterial(Tile tile) {
