@@ -42,6 +42,11 @@ public final class Minesweeper extends Arena {
 
     @Override
     public void join(Team team, Player player) {
+        if (!isEnabled() || isRunning()) {
+            player.sendMessage(Messages.ARENA_BUSY);
+            return;
+        }
+
         if (PlayerHandler.isBusy(player.getUniqueId())) {
             player.sendMessage(Messages.PLAYER_BUSY);
             return;
@@ -74,6 +79,7 @@ public final class Minesweeper extends Arena {
 
     @Override
     public void start() {
+        setRunning(true);
         game.spawnBoard();
 
         Set<UUID> failed = new HashSet<>();

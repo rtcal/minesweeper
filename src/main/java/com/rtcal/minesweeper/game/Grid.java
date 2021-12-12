@@ -23,6 +23,12 @@ public final class Grid {
         this.remaining = width * length - bombs;
 
         grid = new Tile[width][length];
+
+        for (int x = 0; x < width; x++) {
+            for (int z = 0; z < length; z++) {
+                grid[x][z] = new Tile(x, z);
+            }
+        }
     }
 
     public int getWidth() {
@@ -67,12 +73,6 @@ public final class Grid {
     }
 
     public void populate(Tile initial) {
-        for (int x = 0; x < width; x++) {
-            for (int z = 0; z < length; z++) {
-                grid[x][z] = new Tile(x, z);
-            }
-        }
-
         List<Tile> tiles = Arrays.stream(grid).flatMap(Arrays::stream).filter(tile -> tile != initial).collect(Collectors.toList());
 
         Collections.shuffle(tiles);
